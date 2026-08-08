@@ -1,28 +1,28 @@
 class Sixtysix < Formula
   desc "Trading agent — your broker keys, local backtests, live orders"
   homepage "https://sixtysix.pro"
-  version "0.2.1"
+  version "0.2.3"
   license :cannot_represent
 
   on_macos do
     on_arm do
-      url "https://get.sixtysix.pro/agent/v0.2.1/sixtysix-agent-aarch64-apple-darwin"
-      sha256 "8cd3eb75861a93521e1d2012ec56cd812e437dd911f57f91fc1ca1e5b03b1e83"
+      url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-aarch64-apple-darwin"
+      sha256 "e672cb77e8bb4fcb499c337bfd0b69706be05ff4f3118be43bf92d29aa5b3731"
     end
     on_intel do
-      url "https://get.sixtysix.pro/agent/v0.2.1/sixtysix-agent-x86_64-apple-darwin"
-      sha256 "d1396edc1a2d13b380fac4518b26f4b354ead157ad11b4bad459af3d72729490"
+      url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-x86_64-apple-darwin"
+      sha256 "26bbafcea36fb787d5ff9ade31eae1c0cf0b340cde1ba6a5a648a5127843f3c2"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://get.sixtysix.pro/agent/v0.2.1/sixtysix-agent-aarch64-unknown-linux-musl"
-      sha256 "a1933b9e0bfbabafd9878711e57e226976aea94f99d280bca1d87dcd3e22754d"
+      url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-aarch64-unknown-linux-musl"
+      sha256 "27b9d765b86b61e6684df22a32d6b4f4d62cfbd31c3654f46210026dfa02ffdc"
     end
     on_intel do
-      url "https://get.sixtysix.pro/agent/v0.2.1/sixtysix-agent-x86_64-unknown-linux-musl"
-      sha256 "68951f7c90c502b0d5f86be2e9ab94a8e321e883b81f340be0fe4ffba75a876a"
+      url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-x86_64-unknown-linux-musl"
+      sha256 "97acc51f9e9220b74d8b46de4017dd0ecab2048677c3b3f552a18e71ff296546"
     end
   end
 
