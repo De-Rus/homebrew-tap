@@ -12,13 +12,18 @@ class Sixtysix < Formula
   # on both platforms.
   depends_on :linux
 
-  on_arm do
-    url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-aarch64-unknown-linux-musl"
-    sha256 "27b9d765b86b61e6684df22a32d6b4f4d62cfbd31c3654f46210026dfa02ffdc"
-  end
-  on_intel do
-    url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-x86_64-unknown-linux-musl"
-    sha256 "97acc51f9e9220b74d8b46de4017dd0ecab2048677c3b3f552a18e71ff296546"
+  # Wrapped in on_linux so the formula carries NO url on macOS: an installable
+  # formula there wins the name and dies on the requirement above, instead of
+  # letting `brew install de-rus/tap/sixtysix` fall through to the cask.
+  on_linux do
+    on_arm do
+      url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-aarch64-unknown-linux-musl"
+      sha256 "27b9d765b86b61e6684df22a32d6b4f4d62cfbd31c3654f46210026dfa02ffdc"
+    end
+    on_intel do
+      url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-x86_64-unknown-linux-musl"
+      sha256 "97acc51f9e9220b74d8b46de4017dd0ecab2048677c3b3f552a18e71ff296546"
+    end
   end
 
   def install
