@@ -26,13 +26,18 @@ cask "sixtysix" do
                    must_succeed: false
   end
 
-  uninstall quit:    "pro.sixtysix.agent",
-            launchctl: "pro.sixtysix.agent"
-
-  zap trash: [
-    "~/.sixtysix",
-    "~/Library/LaunchAgents/pro.sixtysix.agent.plist",
-  ]
+  # Deliberately NOT tearing down launchd here. The LaunchAgent is created by
+  # the user running `sixtysix install`, not by this cask, and an `uninstall
+  # launchctl:` stanza will happily unregister — and delete the plist of — an
+  # agent that was installed by some other route entirely. That is a live
+  # trading daemon; a dangling job is recoverable, a silently stopped one is
+  # not. `sixtysix uninstall` is the supported way to remove the service, and
+  # `brew uninstall --zap` sweeps it for anyone who wants everything gone.
+  zap launchctl: "pro.sixtysix.agent",
+      trash:     [
+        "~/.sixtysix",
+        "~/Library/LaunchAgents/pro.sixtysix.agent.plist",
+      ]
 
   caveats <<~EOS
     Connect this machine to your account, then run it in the background:
@@ -43,5 +48,9 @@ cask "sixtysix" do
     Broker keys stay in ~/.sixtysix on this machine and are never uploaded.
     Homebrew owns updates here — the agent's self-updater stays off, so
     upgrade with `brew upgrade --cask sixtysix`.
+
+    To remove: `sixtysix uninstall` stops the background service first, then
+    `brew uninstall --cask sixtysix`. Add --zap to also delete ~/.sixtysix,
+    which holds your broker keys.
   EOS
 end
