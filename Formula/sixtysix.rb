@@ -4,34 +4,29 @@ class Sixtysix < Formula
   version "0.2.3"
   license :cannot_represent
 
-  on_macos do
-    on_arm do
-      url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-aarch64-apple-darwin"
-      sha256 "e672cb77e8bb4fcb499c337bfd0b69706be05ff4f3118be43bf92d29aa5b3731"
-    end
-    on_intel do
-      url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-x86_64-apple-darwin"
-      sha256 "26bbafcea36fb787d5ff9ade31eae1c0cf0b340cde1ba6a5a648a5127843f3c2"
-    end
-  end
+  # Linux only, on purpose. A bottle-less formula takes Homebrew's
+  # build-from-source path, which demands current Command Line Tools to install
+  # an already-compiled binary — someone installing a trading agent should not
+  # need Xcode. Restricting this here is what makes `brew install
+  # de-rus/tap/sixtysix` fall through to the cask on macOS, so one command works
+  # on both platforms.
+  depends_on :linux
 
-  on_linux do
-    on_arm do
-      url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-aarch64-unknown-linux-musl"
-      sha256 "27b9d765b86b61e6684df22a32d6b4f4d62cfbd31c3654f46210026dfa02ffdc"
-    end
-    on_intel do
-      url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-x86_64-unknown-linux-musl"
-      sha256 "97acc51f9e9220b74d8b46de4017dd0ecab2048677c3b3f552a18e71ff296546"
-    end
+  on_arm do
+    url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-aarch64-unknown-linux-musl"
+    sha256 "27b9d765b86b61e6684df22a32d6b4f4d62cfbd31c3654f46210026dfa02ffdc"
+  end
+  on_intel do
+    url "https://get.sixtysix.pro/agent/v0.2.3/sixtysix-agent-x86_64-unknown-linux-musl"
+    sha256 "97acc51f9e9220b74d8b46de4017dd0ecab2048677c3b3f552a18e71ff296546"
   end
 
   def install
     bin.install Dir["sixtysix-agent-*"].first => "sixtysix"
   end
 
-  # No `service do` block on purpose: `sixtysix install` registers the agent with
-  # launchd/systemd itself. Adding brew services would leave two supervisors
+  # No `service do` block on purpose: `sixtysix install` registers the agent
+  # with systemd itself. Adding brew services would leave two supervisors
   # fighting over one daemon.
   def caveats
     <<~EOS

@@ -10,8 +10,15 @@ sixtysix pair <code>     # code from Settings → Connections
 sixtysix install         # start on login, restart on crash
 ```
 
-Homebrew owns updates here — the agent's own auto-updater stays off, so
-upgrade with `brew upgrade sixtysix`.
+One command on both platforms. macOS resolves to `Casks/sixtysix.rb` and Linux
+to `Formula/sixtysix.rb` — the formula is marked `depends_on :linux` precisely
+so macOS falls through to the cask. That matters: a bottle-less formula takes
+Homebrew's build-from-source path and demands current Command Line Tools to
+install a binary that is already compiled, and nobody installing a trading
+agent should need Xcode.
 
-`Formula/sixtysix.rb` is generated: each `agent-v*` tag in the main repo
-re-stamps it with the release's version and checksums. Edit it there, not here.
+Homebrew owns updates here — the agent's own auto-updater detects `/Cellar/`
+and stays off, so `brew upgrade` is the one path.
+
+Both files are generated: every `agent-v*` tag in the main repo re-stamps them
+with the release's version and checksums. Edit them there, not here.
