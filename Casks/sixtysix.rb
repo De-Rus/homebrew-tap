@@ -1,11 +1,11 @@
 cask "sixtysix" do
   arch arm: "aarch64", intel: "x86_64"
 
-  version "0.8.6"
-  sha256 arm:   "ff5cbc68b7e13c99d695edbaa7a343d800fe7913295b6fbad6ac41595eace4fa",
-         intel: "7046d01daf5dc054587326099d971e12151dc5c163ec8ed566cfba6319003333"
+  version "0.8.7"
+  sha256 arm:   "5690c7fff5994ec0b084be256bc34f25730182454734e8ad5c44b1cbeda66055",
+         intel: "dfb3d31a6dc1b1e7687a22358e78efd3177743b571884a3e4c8619e3be6db6a9"
 
-  url "https://get.sixtysix.pro/agent/v0.8.6/sixtysix-agent-#{arch}-apple-darwin",
+  url "https://get.sixtysix.pro/agent/v0.8.7/sixtysix-agent-#{arch}-apple-darwin",
       verified: "get.sixtysix.pro/agent/"
   name "sixtysix agent"
   desc "Trading agent — your broker keys, local backtests, live orders"
