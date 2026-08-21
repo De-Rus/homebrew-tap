@@ -1,7 +1,7 @@
 class Sixtysix < Formula
   desc "Trading agent — your broker keys, local backtests, live orders"
   homepage "https://sixtysix.pro"
-  version "0.8.11"
+  version "0.8.12"
   license :cannot_represent
 
   # Linux only, on purpose. A bottle-less formula takes Homebrew's
@@ -17,12 +17,12 @@ class Sixtysix < Formula
   # letting `brew install de-rus/tap/sixtysix` fall through to the cask.
   on_linux do
     on_arm do
-      url "https://get.sixtysix.pro/agent/v0.8.11/sixtysix-agent-aarch64-unknown-linux-musl"
-      sha256 "c47f03502073e5c1e53db6866dfba8befb064508b207f52269e488e650223398"
+      url "https://get.sixtysix.pro/agent/v0.8.12/sixtysix-agent-aarch64-unknown-linux-musl"
+      sha256 "8794e0f52036189a3f4108855e90a42eda0b9cad4b2f2c1b74f4e31471e1a2f9"
     end
     on_intel do
-      url "https://get.sixtysix.pro/agent/v0.8.11/sixtysix-agent-x86_64-unknown-linux-musl"
-      sha256 "0a1be153cd4d4a3f99087b78803bd24b0684a63b480e9cb4c12cd21a35483b82"
+      url "https://get.sixtysix.pro/agent/v0.8.12/sixtysix-agent-x86_64-unknown-linux-musl"
+      sha256 "891acaa715aee6f43fc55cc0fbf6181e782c27c2404fb3a6d31e0398a3ccc870"
     end
   end
 
