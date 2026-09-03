@@ -1,7 +1,7 @@
 class Cartapel < Formula
   desc "Admin panel for your database — one binary, config as code"
   homepage "https://cartapel.com"
-  version "0.9.37"
+  version "0.9.39"
   license "MIT"
 
   # Linux only, on purpose: a bottle-less formula takes Homebrew's
@@ -12,12 +12,12 @@ class Cartapel < Formula
 
   on_linux do
     on_arm do
-      url "https://github.com/De-Rus/cartapel/releases/download/v0.9.37/cartapel-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "eeb31680e5cbb160876d5efa5320f31753bf30da21bae8859de3aa6e9fc4983b"
+      url "https://github.com/De-Rus/cartapel/releases/download/v0.9.39/cartapel-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "0ae7ee632fa997a6704d6d15fd7df5226a633508ec24c3c4b85fbc0ea5459078"
     end
     on_intel do
-      url "https://github.com/De-Rus/cartapel/releases/download/v0.9.37/cartapel-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "82e8c57b6b98b358eae22c49b2372b4da3bfa2f2331ea4539e9851b60cd3dd13"
+      url "https://github.com/De-Rus/cartapel/releases/download/v0.9.39/cartapel-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "bfe66cb064a1e23c7ba7a8cd75d0bf63185356d1f79fbccc61f8fd1ba1a18804"
     end
   end
 
