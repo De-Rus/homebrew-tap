@@ -1,11 +1,11 @@
 cask "cartapel" do
   arch arm: "aarch64", intel: "x86_64"
 
-  version "0.9.42"
-  sha256 arm:   "68e55463e55cd2205ab0e81a905bbf8b0612874e97e58fed9204dbbf5de16017",
-         intel: "aa1ba53656ad010eab8f8dd5c251e28b30acadd80d38594f83e2c80a90aa737f"
+  version "0.9.43"
+  sha256 arm:   "4dafb2355d0284fc19dfb513abb235c8c24246e8e81c3ea841ff6db050c8b525",
+         intel: "c32bf02747c4192cad554729dd95162ec4778d256036daeebad20ecf89e0ca69"
 
-  url "https://github.com/De-Rus/cartapel/releases/download/v0.9.42/cartapel-#{arch}-apple-darwin.tar.gz",
+  url "https://github.com/De-Rus/cartapel/releases/download/v0.9.43/cartapel-#{arch}-apple-darwin.tar.gz",
       verified: "github.com/De-Rus/cartapel/"
   name "cartapel"
   desc "Admin panel for your database — one binary, config as code"
